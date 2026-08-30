@@ -134,6 +134,107 @@ The app opens at **http://localhost:8501**.
 
 ## 🏗️ Architecture
 
+### System Architecture — Full Pipeline
+
+```mermaid
+flowchart TD
+    subgraph USER["🧑‍💻 User Interface (Streamlit)"]
+        direction TB
+        SB["⚙️ Sidebar\nConcerns · Skin Type\nAllergens · Routine · Filters"]
+        T1["📌 Tab 1\nTop Clinical Pick\n+ AI Summary"]
+        T2["📊 Tab 2\nFull Recommendations"]
+        T3["🕐 Tab 3\nAM / PM Scheduler"]
+        T4["💬 Tab 4\nClinical Concierge Chat"]
+    end
+
+    subgraph DATA["📂 Data Layer"]
+        direction TB
+        RAW["data/raw/\nsephora_products.csv\n~8,494 rows · 22 MB"]
+        PROC["data/processed/\nproducts_clean.csv\n1,599 products"]
+        CIM["concern_ingredient_map.csv\n38 mappings · 6 concerns"]
+        STF["skin_type_fit.csv\n8 boost / avoid rules"]
+        ALG["allergens.csv\n4 labels · 8 keywords"]
+        CR["conflict_rules.csv\n9 ingredient pair rules"]
+        RAW -- "notebook_01.ipynb\nEDA + clean" --> PROC
+    end
+
+    subgraph ENGINE["⚙️ Recommendation Engine (src/)"]
+        direction TB
+        REC["recommender.py\n① Allergen hard-exclusion\n② Concern score Σweight\n③ Skin-type ± delta\n④ Cap top-N per category"]
+        CC["conflict_checker.py\nBidirectional pair lookup\nHigh / Medium / Low severity"]
+        EX["explain.py\nGrounded LLM prompt\nAM/PM step router\nAuto-fallback on rate limit"]
+    end
+
+    subgraph AI["🤖 Optional AI Layer"]
+        OAI["OpenAI API\ngpt-4o-mini\n(with fallback)"]
+    end
+
+    subgraph EVAL["🧪 Evaluation (tests/)"]
+        EV["evaluate.py\nPrecision · Recall\nCoverage · Latency"]
+    end
+
+    SB -- "concerns\nskin_type\nallergens\nroutine products" --> REC
+    PROC --> REC
+    CIM --> REC
+    STF --> REC
+    ALG --> REC
+    CR --> CC
+    REC -- "ranked results\n+ matched_ingredients" --> T1 & T2 & T3
+    REC -- "top pick row\n+ existing routine" --> CC
+    CC -- "conflict list\nseverity + solution" --> T1 & T2
+    REC -- "top pick row\nconflicts\nconcerns" --> EX
+    EX -- "grounded context\nchat history" --> OAI
+    OAI -- "plain-language\nclinical summary" --> T1
+    OAI -- "follow-up answer" --> T4
+    EX -- "AM/PM step\ntiming badge" --> T3
+    PROC & CIM & CR --> EV
+```
+
+---
+
+### Component Diagram — Module Responsibilities
+
+```mermaid
+graph LR
+    subgraph Frontend["app.py — Streamlit Frontend"]
+        UI1(["Sidebar Filters"])
+        UI2(["Top Pick Card"])
+        UI3(["Recommendations Table"])
+        UI4(["AM/PM Scheduler"])
+        UI5(["Chat Concierge"])
+    end
+
+    subgraph Core["src/ — Deterministic Core"]
+        R(["recommender.py\n🔵 Pure Python · No AI\nWeighted ingredient scoring\nAllergen pre-filter\nCategory diversity cap"])
+        C(["conflict_checker.py\n🔵 Pure Python · No AI\nBidirectional rule lookup\nSeverity classification"])
+        E(["explain.py\n🟡 Optional AI\nGrounded LLM prompting\nRoute AM/PM timing\nFallback safety net"])
+    end
+
+    subgraph DataFiles["data/ — Reference Tables"]
+        D1[("products_clean.csv\n1,599 products")]
+        D2[("concern_ingredient_map.csv\n38 mappings")]
+        D3[("skin_type_fit.csv\n8 rules")]
+        D4[("allergens.csv\n8 keywords")]
+        D5[("conflict_rules.csv\n9 pairs")]
+    end
+
+    UI1 -->|"user inputs"| R
+    UI1 -->|"existing routine"| C
+    D1 & D2 & D3 & D4 --> R
+    D5 --> C
+    R -->|"ranked DataFrame"| UI2 & UI3 & UI4
+    R -->|"top pick row"| C
+    C -->|"conflicts + severity"| UI2 & UI3
+    R -->|"top pick row + conflicts"| E
+    E -->|"AI summary"| UI2
+    E -->|"chat answer"| UI5
+    E -->|"AM/PM placement"| UI4
+```
+
+---
+
+### File Structure
+
 ```
 FormuGraph/
 │
@@ -147,9 +248,9 @@ FormuGraph/
 │
 ├── data/
 │   ├── raw/
-│   │   └── sephora_products.csv     # Original Sephora dataset (~22 MB)
+│   │   └── sephora_products.csv     # Original Sephora dataset (~22 MB, 8,494 rows)
 │   ├── processed/
-│   │   └── products_clean.csv       # Cleaned & standardized product catalog
+│   │   └── products_clean.csv       # Cleaned & standardized product catalog (1,599)
 │   ├── concern_ingredient_map.csv   # Hand-curated concern → ingredient mapping
 │   ├── skin_type_fit.csv            # Skin type → ingredient boost/avoid rules
 │   ├── allergens.csv                # Allergen label → ingredient keyword mapping
@@ -160,7 +261,7 @@ FormuGraph/
 │
 ├── notebook_01.ipynb                # EDA & data cleaning notebook
 ├── requirements.txt                 # Python dependencies (5 packages)
-├── .env                             # API keys (not committed)
+├── .env                             # API keys (git-ignored)
 └── .gitignore
 ```
 
@@ -168,12 +269,14 @@ FormuGraph/
 
 | Module | Role | Uses AI? |
 |---|---|---|
-| `recommender.py` | Concern → ingredient lookup, scoring, allergen filtering, ranking | ❌ No |
-| `conflict_checker.py` | Bidirectional ingredient conflict detection with severity | ❌ No |
-| `explain.py` | Grounded LLM explanation + follow-up chat + routine scheduling | ✅ Optional |
-| `app.py` | Full Streamlit frontend with 4 tabs, sidebar, and styling | ❌ No |
+| `recommender.py` | Concern → ingredient lookup, weighted scoring, allergen filtering, top-N ranking | ❌ No |
+| `conflict_checker.py` | Bidirectional ingredient conflict detection with severity + solution text | ❌ No |
+| `explain.py` | Grounded LLM explanation, follow-up chat, AM/PM routine step routing | ✅ Optional |
+| `app.py` | Full Streamlit frontend — 4 tabs, sidebar, CSS design system, state management | ❌ No |
 
 ---
+
+
 
 ## 🧪 Recommendation Approach
 
