@@ -1,2 +1,5 @@
 .env
-FormuGraph_Docs
+*.docx
+~$*
+__pycache__/
+*.pyc

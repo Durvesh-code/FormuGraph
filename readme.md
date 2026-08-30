@@ -19,26 +19,6 @@
   <em>A deterministic, explainable skincare recommendation system that matches products to skin concerns using ingredient-level science — not black-box embeddings or collaborative filtering.</em>
 </p>
 
-
----
-
-## 📖 Table of Contents
-
-| # | Section | Description |
-|---|---|---|
-| 1 | [📌 What You Built](#-what-you-built) | Project overview, problem statement, key features |
-| 2 | [⚙️ How It Works](#%EF%B8%8F-how-it-works) | Three-layer pipeline: Score → Check → Explain |
-| 3 | [🚀 How to Run It](#-how-to-run-it) | Install, configure, and launch the app locally |
-| 4 | [🏗️ Architecture](#%EF%B8%8F-architecture) | System diagrams, file structure, module responsibilities |
-| 5 | [🧪 Recommendation Approach](#-recommendation-approach) | Weighted scoring algorithm and design decisions |
-| 6 | [📊 Dataset](#-dataset) | Source, cleaning pipeline, reference tables |
-| 7 | [✅ Evaluation](#-evaluation) | Precision, Recall, Coverage, Latency results |
-| 8 | [🧪 Test Cases](#-test-cases) | Ground-truth test vectors for mapping and conflict detection |
-| 9 | [⚠️ Limitations](#%EF%B8%8F-limitations) | Known constraints and engineering trade-offs |
-| 10 | [🔮 Future Improvements](#-future-improvements) | Roadmap and planned enhancements |
-| ＋ | [📋 Assumptions Made](#-assumptions-made) | Engineering assumptions the system operates under |
-| ＋ | [🏆 Bonus: Platform Comparison](#-bonus-challenge-platform-comparison--benchmarking) | Benchmark vs Nykaa / Sephora / Orbo BeautyGPT |
-
 ---
 
 ## 📌 What You Built
@@ -96,17 +76,6 @@ User Input                Deterministic Engine              Optional AI
 
 ---
 
-## 📋 Assumptions Made
-
-To build a reliable and deterministic engine without clinical diagnostic hardware, the system operates under the following engineering assumptions:
-
-1. **INCI Uniformity:** Product formulations comply with standard International Nomenclature of Cosmetic Ingredients (INCI) naming conventions, where ingredients are listed in descending order of concentration.
-2. **Topical Vehicle Stability:** Active ingredient contraindications (e.g., Retinoids + AHAs) apply across standard topical leave-on formulations unless specifically buffered.
-3. **General Adult Tolerance:** Scoring weights assume general adult epidermal biology without acute dermatological medical conditions (such as open eczema lesions or active cystic acne under oral isotretinoin therapy).
-4. **Binary Conflict Threshold:** If an ingredient pair is flagged in `conflict_rules.csv`, the interaction is treated as a hard contraindication for concurrent same-routine layering regardless of unlisted trace concentrations.
-
----
-
 ## 🚀 How to Run It
 
 ### Prerequisites
@@ -118,7 +87,7 @@ To build a reliable and deterministic engine without clinical diagnostic hardwar
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/FormuGraph.git
+git clone https://github.com/Durvesh-code/FormuGraph.git
 cd FormuGraph
 
 # 2. Create and activate a virtual environment
@@ -295,8 +264,6 @@ FormuGraph/
 
 ---
 
-
-
 ## 🧪 Recommendation Approach
 
 FormuGraph uses a **weighted ingredient-matching** algorithm — not collaborative filtering, not embeddings, not a neural network. Every recommendation is fully traceable.
@@ -460,13 +427,19 @@ FormuGraph was benchmarked against industry-standard beauty recommendation engin
 
 ## ⚠️ Limitations
 
-1. **Small reference tables** — The concern-ingredient map covers 38 mappings across 6 concerns. Niche concerns (e.g., fungal acne, perioral dermatitis) and rare ingredients are not covered due to limited data sources.
+1. **Substring matching is approximate** — Ingredient lists use INCI nomenclature which can have synonyms, abbreviations, or complex compound names not captured by simple substring search. A product containing "retinyl palmitate" won't match a rule looking for "retinol".
 
-2. **Static dataset** — The product catalog is a snapshot. New product launches, reformulations, and discontinued items are not reflected without manual re-processing.
+2. **Small reference tables** — The concern-ingredient map covers 38 mappings across 6 concerns. Niche concerns (e.g., fungal acne, perioral dermatitis) and rare ingredients are not covered.
 
-3. **AI layer depends on external API** — The clinical summary and chat features require a valid OpenAI API key and are subject to rate limits and costs. The core recommendation engine works without it.
+3. **Conflict rules are not exhaustive** — Only 9 conflict pairs are documented. Real-world dermatology has more nuanced interactions, especially with prescription actives and compounded formulations.
 
-4. **Single-language support** — Ingredient matching and UI are English-only. INCI names are standardized in Latin/English, but product descriptions and user-facing text have no i18n.
+4. **No concentration awareness** — A product listing "salicylic acid" as its 2nd ingredient (high concentration) and one listing it last (trace amount) are treated identically. The engine has no access to formulation percentages.
+
+5. **Static dataset** — The product catalog is a snapshot. New product launches, reformulations, and discontinued items are not reflected without manual re-processing.
+
+6. **AI layer depends on external API** — The clinical summary and chat features require a valid OpenAI API key and are subject to rate limits and costs. The core recommendation engine works without it.
+
+7. **Single-language support** — Ingredient matching and UI are English-only. INCI names are standardized in Latin/English, but product descriptions and user-facing text have no i18n.
 
 ---
 
@@ -485,26 +458,14 @@ FormuGraph was benchmarked against industry-standard beauty recommendation engin
 
 ---
 
-## 📄 License
+## 📋 Assumptions Made
 
-This project is for educational and demonstration purposes.
+To build a reliable and deterministic engine without clinical diagnostic hardware, the system operates under the following engineering assumptions:
 
----
-
-## 📑 README Coverage Index
-
-This README documents all 10 required sections for the FormuGraph project submission:
-
-- ✅ **What you built** — [Jump ↑](#-what-you-built)
-- ✅ **How it works** — [Jump ↑](#%EF%B8%8F-how-it-works)
-- ✅ **How to run it** — [Jump ↑](#-how-to-run-it)
-- ✅ **Architecture** — [Jump ↑](#%EF%B8%8F-architecture)
-- ✅ **Recommendation approach** — [Jump ↑](#-recommendation-approach)
-- ✅ **Dataset** — [Jump ↑](#-dataset)
-- ✅ **Evaluation** — [Jump ↑](#-evaluation)
-- ✅ **Test cases** — [Jump ↑](#-test-cases)
-- ✅ **Limitations** — [Jump ↑](#%EF%B8%8F-limitations)
-- ✅ **Future improvements** — [Jump ↑](#-future-improvements)
+1. **INCI Uniformity:** Product formulations comply with standard International Nomenclature of Cosmetic Ingredients (INCI) naming conventions, where ingredients are listed in descending order of concentration.
+2. **Topical Vehicle Stability:** Active ingredient contraindications (e.g., Retinoids + AHAs) apply across standard topical leave-on formulations unless specifically buffered.
+3. **General Adult Tolerance:** Scoring weights assume general adult epidermal biology without acute dermatological medical conditions (such as open eczema lesions or active cystic acne under oral isotretinoin therapy).
+4. **Binary Conflict Threshold:** If an ingredient pair is flagged in `conflict_rules.csv`, the interaction is treated as a hard contraindication for concurrent same-routine layering regardless of unlisted trace concentrations.
 
 ---
 
