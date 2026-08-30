@@ -22,6 +22,25 @@
 
 ---
 
+## 📖 Table of Contents
+
+| # | Section | Description |
+|---|---|---|
+| 1 | [📌 What You Built](#-what-you-built) | Project overview, problem statement, key features |
+| 2 | [⚙️ How It Works](#%EF%B8%8F-how-it-works) | Three-layer pipeline: Score → Check → Explain |
+| 3 | [🚀 How to Run It](#-how-to-run-it) | Install, configure, and launch the app locally |
+| 4 | [🏗️ Architecture](#%EF%B8%8F-architecture) | System diagrams, file structure, module responsibilities |
+| 5 | [🧪 Recommendation Approach](#-recommendation-approach) | Weighted scoring algorithm and design decisions |
+| 6 | [📊 Dataset](#-dataset) | Source, cleaning pipeline, reference tables |
+| 7 | [✅ Evaluation](#-evaluation) | Precision, Recall, Coverage, Latency results |
+| 8 | [🧪 Test Cases](#-test-cases) | Ground-truth test vectors for mapping and conflict detection |
+| 9 | [⚠️ Limitations](#%EF%B8%8F-limitations) | Known constraints and engineering trade-offs |
+| 10 | [🔮 Future Improvements](#-future-improvements) | Roadmap and planned enhancements |
+| ＋ | [📋 Assumptions Made](#-assumptions-made) | Engineering assumptions the system operates under |
+| ＋ | [🏆 Bonus: Platform Comparison](#-bonus-challenge-platform-comparison--benchmarking) | Benchmark vs Nykaa / Sephora / Orbo BeautyGPT |
+
+---
+
 ## 📌 What You Built
 
 **FormuGraph** is an end-to-end skincare recommendation and safety-conflict engine built as a Streamlit web application. It solves a real problem: most skincare recommendation tools are either simple quizzes with hardcoded answers, or opaque ML systems that can't explain *why* a product was picked or *whether it's safe* to layer with your existing routine.
@@ -469,6 +488,29 @@ FormuGraph was benchmarked against industry-standard beauty recommendation engin
 - [ ] **Community reviews integration** — Aggregate real user reviews and ingredient reaction reports
 - [ ] **Offline PWA mode** — Package as a Progressive Web App for offline ingredient conflict checking
 - [ ] **Dermatologist validation** — Partner with licensed dermatologists to clinically validate and expand the reference tables
+
+---
+
+## 📄 License
+
+This project is for educational and demonstration purposes.
+
+---
+
+## 📑 README Coverage Index
+
+This README documents all 10 required sections for the FormuGraph project submission:
+
+- ✅ **What you built** — [Jump ↑](#-what-you-built)
+- ✅ **How it works** — [Jump ↑](#%EF%B8%8F-how-it-works)
+- ✅ **How to run it** — [Jump ↑](#-how-to-run-it)
+- ✅ **Architecture** — [Jump ↑](#%EF%B8%8F-architecture)
+- ✅ **Recommendation approach** — [Jump ↑](#-recommendation-approach)
+- ✅ **Dataset** — [Jump ↑](#-dataset)
+- ✅ **Evaluation** — [Jump ↑](#-evaluation)
+- ✅ **Test cases** — [Jump ↑](#-test-cases)
+- ✅ **Limitations** — [Jump ↑](#%EF%B8%8F-limitations)
+- ✅ **Future improvements** — [Jump ↑](#-future-improvements)
 
 ---
 
