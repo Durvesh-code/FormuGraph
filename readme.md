@@ -468,13 +468,6 @@ To build a reliable and deterministic engine without clinical diagnostic hardwar
 4. **Binary Conflict Threshold:** If an ingredient pair is flagged in `conflict_rules.csv`, the interaction is treated as a hard contraindication for concurrent same-routine layering regardless of unlisted trace concentrations.
 
 ---
-
-## 📄 License
-
-This project is for educational and demonstration purposes.
-
----
-
 <p align="center">
   Built with 🧬 by <strong>FormuGraph</strong> — where skincare meets science.
 </p>
