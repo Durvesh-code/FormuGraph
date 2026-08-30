@@ -460,19 +460,13 @@ FormuGraph was benchmarked against industry-standard beauty recommendation engin
 
 ## ⚠️ Limitations
 
-1. **Substring matching is approximate** — Ingredient lists use INCI nomenclature which can have synonyms, abbreviations, or complex compound names not captured by simple substring search. A product containing "retinyl palmitate" won't match a rule looking for "retinol".
+1. **Small reference tables** — The concern-ingredient map covers 38 mappings across 6 concerns. Niche concerns (e.g., fungal acne, perioral dermatitis) and rare ingredients are not covered due to limited data sources.
 
-2. **Small reference tables** — The concern-ingredient map covers 38 mappings across 6 concerns. Niche concerns (e.g., fungal acne, perioral dermatitis) and rare ingredients are not covered.
+2. **Static dataset** — The product catalog is a snapshot. New product launches, reformulations, and discontinued items are not reflected without manual re-processing.
 
-3. **Conflict rules are not exhaustive** — Only 9 conflict pairs are documented. Real-world dermatology has more nuanced interactions, especially with prescription actives and compounded formulations.
+3. **AI layer depends on external API** — The clinical summary and chat features require a valid OpenAI API key and are subject to rate limits and costs. The core recommendation engine works without it.
 
-4. **No concentration awareness** — A product listing "salicylic acid" as its 2nd ingredient (high concentration) and one listing it last (trace amount) are treated identically. The engine has no access to formulation percentages.
-
-5. **Static dataset** — The product catalog is a snapshot. New product launches, reformulations, and discontinued items are not reflected without manual re-processing.
-
-6. **AI layer depends on external API** — The clinical summary and chat features require a valid OpenAI API key and are subject to rate limits and costs. The core recommendation engine works without it.
-
-7. **Single-language support** — Ingredient matching and UI are English-only. INCI names are standardized in Latin/English, but product descriptions and user-facing text have no i18n.
+4. **Single-language support** — Ingredient matching and UI are English-only. INCI names are standardized in Latin/English, but product descriptions and user-facing text have no i18n.
 
 ---
 
