@@ -1,0 +1,8 @@
+skin_type,ingredient,effect,weight,why
+Oily / Acne-Prone,coconut oil,avoid,0.8,can clog pores and worsen breakouts
+Oily / Acne-Prone,salicylic acid,boost,0.5,helps control excess oil
+Dry,hyaluronic acid,boost,0.8,draws moisture into the skin
+Dry,alcohol denat,avoid,0.7,can strip natural oils and increase dryness
+Sensitive,fragrance,avoid,1.0,common irritant for reactive skin
+Sensitive,centella asiatica,boost,0.6,calms and soothes irritation
+Combination,niacinamide,boost,0.5,balances oil without over-drying other areas

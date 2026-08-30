@@ -1,38 +1,38 @@
-concern,ingredient,weight
-Acne & Blemishes,salicylic acid,1.0
-Acne & Blemishes,benzoyl peroxide,1.0
-Acne & Blemishes,azelaic acid,0.9
-Acne & Blemishes,niacinamide,0.8
-Acne & Blemishes,zinc,0.8
-Acne & Blemishes,tea tree,0.7
-Hyperpigmentation & Dark Spots,vitamin c,1.0
-Hyperpigmentation & Dark Spots,ascorbic acid,1.0
-Hyperpigmentation & Dark Spots,alpha arbutin,0.9
-Hyperpigmentation & Dark Spots,tranexamic acid,0.9
-Hyperpigmentation & Dark Spots,azelaic acid,0.9
-Hyperpigmentation & Dark Spots,niacinamide,0.8
-Hyperpigmentation & Dark Spots,glycolic acid,0.8
-Anti-Aging & Fine Lines,retinol,1.0
-Anti-Aging & Fine Lines,retinal,1.0
-Anti-Aging & Fine Lines,tretinoin,1.0
-Anti-Aging & Fine Lines,bakuchiol,0.8
-Anti-Aging & Fine Lines,peptide,0.9
-Anti-Aging & Fine Lines,collagen,0.7
-Anti-Aging & Fine Lines,adenosine,0.7
-Dryness & Barrier Repair,hyaluronic acid,1.0
-Dryness & Barrier Repair,sodium hyaluronate,1.0
-Dryness & Barrier Repair,ceramide,1.0
-Dryness & Barrier Repair,squalane,0.9
-Dryness & Barrier Repair,glycerin,0.9
-Dryness & Barrier Repair,panthenol,0.8
-Redness & Sensitivity,centella asiatica,1.0
-Redness & Sensitivity,cica,1.0
-Redness & Sensitivity,madecassoside,1.0
-Redness & Sensitivity,allantoin,0.8
-Redness & Sensitivity,azelaic acid,0.9
-Redness & Sensitivity,panthenol,0.8
-Dullness & Texture,glycolic acid,1.0
-Dullness & Texture,lactic acid,0.9
-Dullness & Texture,mandelic acid,0.8
-Dullness & Texture,gluconolactone,0.8
-Dullness & Texture,vitamin c,0.9
+concern,ingredient,weight,why
+Acne & Blemishes,salicylic acid,1.0,"exfoliates inside pore lining and dissolves excess sebum"
+Acne & Blemishes,benzoyl peroxide,1.0,"kills acne-causing bacteria and reduces inflammatory lesions"
+Acne & Blemishes,azelaic acid,0.9,"antibacterial and anti-inflammatory; unclogs pores and reduces redness"
+Acne & Blemishes,niacinamide,0.8,"regulates sebum production and strengthens epidermal barrier"
+Acne & Blemishes,zinc,0.8,"anti-inflammatory mineral that reduces sebum secretion and swelling"
+Acne & Blemishes,tea tree,0.7,"natural antimicrobial and anti-inflammatory botanical extract"
+Hyperpigmentation & Dark Spots,vitamin c,1.0,"potent antioxidant that inhibits tyrosinase to fade dark spots"
+Hyperpigmentation & Dark Spots,ascorbic acid,1.0,"direct active vitamin C that visibly brightens and evens skin tone"
+Hyperpigmentation & Dark Spots,alpha arbutin,0.9,"safe tyrosinase inhibitor that targets post-inflammatory hyperpigmentation"
+Hyperpigmentation & Dark Spots,tranexamic acid,0.9,"blocks melanin synthesis and calms vascular pigment"
+Hyperpigmentation & Dark Spots,azelaic acid,0.9,"selectively targets hyperactive melanocytes to fade discoloration"
+Hyperpigmentation & Dark Spots,niacinamide,0.8,"inhibits melanosome transfer from melanocytes to surface skin cells"
+Hyperpigmentation & Dark Spots,glycolic acid,0.8,"AHA chemical exfoliant that accelerates shedding of pigmented surface cells"
+Anti-Aging & Fine Lines,retinol,1.0,"stimulates cellular turnover and boosts dermal collagen synthesis"
+Anti-Aging & Fine Lines,retinal,1.0,"fast-acting retinoid precursor that smooths deep lines and restores firmness"
+Anti-Aging & Fine Lines,tretinoin,1.0,"clinical-grade retinoid proven to reverse photoaging and rebuild collagen"
+Anti-Aging & Fine Lines,bakuchiol,0.8,"gentle botanical retinoid alternative that improves elasticity without irritation"
+Anti-Aging & Fine Lines,peptide,0.9,"cellular signal molecules that stimulate collagen and elastin production"
+Anti-Aging & Fine Lines,collagen,0.7,"surface humectant that plumps epidermis and improves moisture retention"
+Anti-Aging & Fine Lines,adenosine,0.7,"energizes skin cells and relaxes surface wrinkle tension"
+Dryness & Barrier Repair,hyaluronic acid,1.0,"powerful humectant capable of binding up to 1000x its weight in water"
+Dryness & Barrier Repair,sodium hyaluronate,1.0,"smaller molecular weight HA that penetrates deeper into epidermal layers"
+Dryness & Barrier Repair,ceramide,1.0,"essential lipid component of intercellular matrix that repairs skin barrier"
+Dryness & Barrier Repair,squalane,0.9,"biomimetic lipid that prevents trans-epidermal water loss without clogging pores"
+Dryness & Barrier Repair,glycerin,0.9,"natural moisturizing factor that restores cellular hydration and suppleness"
+Dryness & Barrier Repair,panthenol,0.8,"pro-vitamin B5 that deeply soothes and attracts moisture"
+Redness & Sensitivity,centella asiatica,1.0,"calming herbal extract that reduces inflammatory cytokines and erythema"
+Redness & Sensitivity,cica,1.0,"purified bio-active that reinforces compromised capillaries and soothes irritation"
+Redness & Sensitivity,madecassoside,1.0,"isolated active terpene that accelerates barrier repair and healing"
+Redness & Sensitivity,allantoin,0.8,"keratolytic and soothing agent that mitigates irritation and softens skin"
+Redness & Sensitivity,azelaic acid,0.9,"clinically proven to reduce inflammatory redness and sensitivity"
+Redness & Sensitivity,panthenol,0.8,"anti-inflammatory hydrator that relieves itching and redness"
+Dullness & Texture,glycolic acid,1.0,"smallest AHA molecule for deep micro-exfoliation and immediate radiance"
+Dullness & Texture,lactic acid,0.9,"gentle AHA that simultaneously dissolves dead surface cells and hydrates"
+Dullness & Texture,mandelic acid,0.8,"larger molecular weight AHA providing ultra-gentle resurfacing for sensitive skin"
+Dullness & Texture,gluconolactone,0.8,"PHA gentle polyhydroxy acid that smooths texture with antioxidant support"
+Dullness & Texture,vitamin c,0.9,"brightens dull complexions and protects against oxidative stress"
