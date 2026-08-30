@@ -1,0 +1,9 @@
+ingredient_a,ingredient_b,severity,conflict_type,reason,solution
+retinol,glycolic acid,High,Chemical Contraindication,"Simultaneous application of retinoids and potent AHAs causes acute epidermal barrier degradation, peeling, and erythema.",Split routines: use Glycolic Acid in AM or alternate PM nights.
+retinol,salicylic acid,High,Chemical Contraindication,"Combining BHA exfoliants with retinoids excessively strips lipid bilayers, leading to severe barrier damage.",Use Salicylic Acid in AM and Retinol in PM.
+retinol,benzoyl peroxide,High,Active Deactivation,"Benzoyl peroxide oxidizes and rapidly destabilizes pure retinol molecules, rendering both compounds chemically inert.",Apply Benzoyl Peroxide in AM and Retinol in PM.
+ascorbic acid,copper peptide,High,Active Deactivation,"Direct L-ascorbic acid oxidizes copper ions, neutralizing antioxidant activity and degrading peptides.",Use Vitamin C (Ascorbic Acid) in AM and Copper Peptides in PM.
+ascorbic acid,retinol,Medium,pH / Irritation Conflict,"L-ascorbic acid requires a low pH (<3.5) while retinol prefers neutral pH (~5.5-6.0), causing potential stinging and reduced efficacy.",Apply Vitamin C in the morning under SPF; use Retinol in the evening.
+glycolic acid,salicylic acid,Medium,Over-Exfoliation Risk,Layering direct AHAs over BHAs causes compounded stratum corneum thinning and skin sensitization.,Alternate days of usage; avoid concurrent layering in the same routine.
+carbomer,dimethicone,Medium,Physical Pilling Risk,High-molecular weight carbomer polymers destabilize and ball up when layered directly over volatile silicone matrices under mechanical friction.,Apply lightweight water-based carbomer gels first; allow 3-5 minutes absorption before silicone layers.
+ascorbic acid,glycolic acid,Low,pH Stacking Irritation,Stacking multiple low-pH acid formulations can compromise skin tolerance in sensitive barrier types.,Separate by applying Vitamin C in AM and Glycolic Acid in PM.

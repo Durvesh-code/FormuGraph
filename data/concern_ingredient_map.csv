@@ -1,0 +1,38 @@
+concern,ingredient,weight
+Acne & Blemishes,salicylic acid,1.0
+Acne & Blemishes,benzoyl peroxide,1.0
+Acne & Blemishes,azelaic acid,0.9
+Acne & Blemishes,niacinamide,0.8
+Acne & Blemishes,zinc,0.8
+Acne & Blemishes,tea tree,0.7
+Hyperpigmentation & Dark Spots,vitamin c,1.0
+Hyperpigmentation & Dark Spots,ascorbic acid,1.0
+Hyperpigmentation & Dark Spots,alpha arbutin,0.9
+Hyperpigmentation & Dark Spots,tranexamic acid,0.9
+Hyperpigmentation & Dark Spots,azelaic acid,0.9
+Hyperpigmentation & Dark Spots,niacinamide,0.8
+Hyperpigmentation & Dark Spots,glycolic acid,0.8
+Anti-Aging & Fine Lines,retinol,1.0
+Anti-Aging & Fine Lines,retinal,1.0
+Anti-Aging & Fine Lines,tretinoin,1.0
+Anti-Aging & Fine Lines,bakuchiol,0.8
+Anti-Aging & Fine Lines,peptide,0.9
+Anti-Aging & Fine Lines,collagen,0.7
+Anti-Aging & Fine Lines,adenosine,0.7
+Dryness & Barrier Repair,hyaluronic acid,1.0
+Dryness & Barrier Repair,sodium hyaluronate,1.0
+Dryness & Barrier Repair,ceramide,1.0
+Dryness & Barrier Repair,squalane,0.9
+Dryness & Barrier Repair,glycerin,0.9
+Dryness & Barrier Repair,panthenol,0.8
+Redness & Sensitivity,centella asiatica,1.0
+Redness & Sensitivity,cica,1.0
+Redness & Sensitivity,madecassoside,1.0
+Redness & Sensitivity,allantoin,0.8
+Redness & Sensitivity,azelaic acid,0.9
+Redness & Sensitivity,panthenol,0.8
+Dullness & Texture,glycolic acid,1.0
+Dullness & Texture,lactic acid,0.9
+Dullness & Texture,mandelic acid,0.8
+Dullness & Texture,gluconolactone,0.8
+Dullness & Texture,vitamin c,0.9
