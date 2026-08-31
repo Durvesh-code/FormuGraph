@@ -451,13 +451,6 @@ To build a reliable and deterministic engine without clinical diagnostic hardwar
 2. **Topical Vehicle Stability:** Active ingredient contraindications (e.g., Retinoids + AHAs) apply across standard topical leave-on formulations unless specifically buffered.
 3. **General Adult Tolerance:** Scoring weights assume general adult epidermal biology without acute dermatological medical conditions (such as open eczema lesions or active cystic acne under oral isotretinoin therapy).
 4. **Binary Conflict Threshold:** If an ingredient pair is flagged in `conflict_rules.csv`, the interaction is treated as a hard contraindication for concurrent same-routine layering regardless of unlisted trace concentrations.
-
----
-
-## 📄 License
-
-This project is for educational and demonstration purposes.
-
 ---
 
 <p align="center">
