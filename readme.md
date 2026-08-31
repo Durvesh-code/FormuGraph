@@ -427,34 +427,19 @@ FormuGraph was benchmarked against industry-standard beauty recommendation engin
 
 ## ⚠️ Limitations
 
-1. **Substring matching is approximate** — Ingredient lists use INCI nomenclature which can have synonyms, abbreviations, or complex compound names not captured by simple substring search. A product containing "retinyl palmitate" won't match a rule looking for "retinol".
+1. **Static dataset** — The product catalog is a snapshot. New product launches, reformulations, and discontinued items are not reflected without manual re-processing.
 
-2. **Small reference tables** — The concern-ingredient map covers 38 mappings across 6 concerns. Niche concerns (e.g., fungal acne, perioral dermatitis) and rare ingredients are not covered.
+2. **AI layer depends on external API** — The clinical summary and chat features require a valid OpenAI API key and are subject to rate limits and costs. The core recommendation engine works without it.
 
-3. **Conflict rules are not exhaustive** — Only 9 conflict pairs are documented. Real-world dermatology has more nuanced interactions, especially with prescription actives and compounded formulations.
-
-4. **No concentration awareness** — A product listing "salicylic acid" as its 2nd ingredient (high concentration) and one listing it last (trace amount) are treated identically. The engine has no access to formulation percentages.
-
-5. **Static dataset** — The product catalog is a snapshot. New product launches, reformulations, and discontinued items are not reflected without manual re-processing.
-
-6. **AI layer depends on external API** — The clinical summary and chat features require a valid OpenAI API key and are subject to rate limits and costs. The core recommendation engine works without it.
-
-7. **Single-language support** — Ingredient matching and UI are English-only. INCI names are standardized in Latin/English, but product descriptions and user-facing text have no i18n.
+3. **Single-language support** — Ingredient matching and UI are English-only. INCI names are standardized in Latin/English, but product descriptions and user-facing text have no i18n.
 
 ---
 
 ## 🔮 Future Improvements
 
-- [ ] **Concentration-aware scoring** — Parse ingredient list position as a proxy for concentration (INCI lists are ordered by concentration descending) and weight matches accordingly
-- [ ] **Expanded conflict database** — Integrate published dermatology interaction databases for broader coverage of ingredient contraindications
-- [ ] **User accounts & history** — Save routines, track skin progress over time, and provide personalized trend analysis
-- [ ] **Product image integration** — Display actual product packaging images alongside recommendations
-- [ ] **Barcode / photo scanning** — Let users scan a product barcode or photo to auto-extract ingredients and check conflicts instantly
-- [ ] **Multi-concern optimization** — Minimize total products needed to cover all selected concerns (set-cover optimization)
-- [ ] **Seasonal and climate adaptation** — Adjust recommendations based on humidity, UV index, and seasonal skin behavior
-- [ ] **Community reviews integration** — Aggregate real user reviews and ingredient reaction reports
-- [ ] **Offline PWA mode** — Package as a Progressive Web App for offline ingredient conflict checking
-- [ ] **Dermatologist validation** — Partner with licensed dermatologists to clinically validate and expand the reference tables
+- [ ] **Barcode / photo scanning** — Let users scan a product barcode or bottle photo with mobile computer vision to auto-extract ingredients and audit conflicts instantly.
+- [ ] **Multi-concern optimization** — Minimize total products needed to cover all selected concerns using set-cover optimization algorithms.
+- [ ] **Concentration-aware scoring** — Parse ingredient list position as a mathematical proxy for concentration (INCI lists order by concentration descending) and weight matches accordingly.
 
 ---
 
@@ -468,6 +453,13 @@ To build a reliable and deterministic engine without clinical diagnostic hardwar
 4. **Binary Conflict Threshold:** If an ingredient pair is flagged in `conflict_rules.csv`, the interaction is treated as a hard contraindication for concurrent same-routine layering regardless of unlisted trace concentrations.
 
 ---
+
+## 📄 License
+
+This project is for educational and demonstration purposes.
+
+---
+
 <p align="center">
   Built with 🧬 by <strong>FormuGraph</strong> — where skincare meets science.
 </p>
