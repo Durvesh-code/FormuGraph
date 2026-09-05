@@ -21,7 +21,7 @@
 
 ---
 
-## 📌 What You Built
+## 📌 What We Built
 
 **FormuGraph** is an end-to-end skincare recommendation and safety-conflict engine built as a Streamlit web application. It solves a real problem: most skincare recommendation tools are either simple quizzes with hardcoded answers, or opaque ML systems that can't explain *why* a product was picked or *whether it's safe* to layer with your existing routine.
 
